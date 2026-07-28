@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEO &amp; GEO diagnostika</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap');
+  :root{
+    --bg:#12151C; --card:#1B2029; --card2:#171B23; --border:#2A3140;
+    --text:#EDEFF3; --text2:#8891A3; --text3:#6B7386; --muted:#565D6E;
+    --good:#3FBF8F; --warn:#E8B84B; --bad:#E8604A;
+    --c-hyba:#E8B84B; --c-raha24:#5CC8A8; --c-moneyzen:#C97BD6;
+    --c-seo:#5CC8A8; --c-geo:#C97BD6; --c-tech:#E8B84B;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;}
+  .wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px;}
+  .eyebrow{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.14em;color:var(--text3);text-transform:uppercase;margin-bottom:10px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block;
+    box-shadow:0 0 0 0 rgba(63,191,143,.5);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,191,143,.45)}70%{box-shadow:0 0 0 8px rgba(63,191,143,0)}100%{box-shadow:0 0 0 0 rgba(63,191,143,0)}}
+  h1{font-family:'Fraunces',serif;font-weight:700;font-size:34px;margin:0 0 8px;letter-spacing:-0.01em;}
+  .sub{color:var(--text2);font-size:14.5px;max-width:560px;line-height:1.5;margin:0 0 32px;}
+  .cards{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  .card-top{display:flex;gap:20px;padding:22px 24px;align-items:center;flex-wrap:wrap;}
+  .gauge-wrap{position:relative;flex-shrink:0;}
+  .gauge-score{position:absolute;top:0;left:0;width:112px;height:112px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;}
+  .gauge-num{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:var(--text);line-height:1;}
+  .gauge-lbl{font-size:10px;color:var(--text2);letter-spacing:.05em;margin-top:2px;}
+  .site-info{flex:1;min-width:160px;}
+  .site-name-row{display:flex;align-items:center;gap:8px;}
+  .swatch{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .site-name{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin:0;color:var(--text);}
+  .site-url{font-size:12px;color:var(--text3);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:2px;}
+  .site-url:hover{color:var(--text2);}
+  .stats-row{margin-top:10px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .issue-num{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;color:var(--text);line-height:1;}
+  .issue-lbl{font-size:11px;color:var(--text3);margin-top:2px;}
+  .delta{display:flex;align-items:center;gap:4px;font-size:12.5px;margin-top:2px;}
+  .band{font-size:11px;padding:4px 10px;border-radius:999px;font-weight:600;white-space:nowrap;}
+  .expand-btn{background:transparent;border:1px solid var(--border);border-radius:8px;color:#B7BCC8;
+    padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:13px;font-family:inherit;}
+  .expand-btn:hover{border-color:#454E60;color:var(--text);}
+  .mini-chart{padding:0 24px 20px;}
+  .details{border-top:1px solid var(--border);padding:20px 24px 24px;background:var(--card2);
+    display:none;gap:28px;flex-wrap:wrap;}
+  .details.open{display:flex;}
+  .cat-block{flex:1 1 260px;min-width:240px;}
+  .cat-title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:10px;font-weight:600;}
+  .cat-count{color:var(--text3);font-weight:400;}
+  .findings{display:flex;flex-direction:column;gap:6px;}
+  .finding{display:flex;gap:8px;padding:8px 10px;border-radius:6px;background:rgba(232,96,74,.08);
+    border:1px solid rgba(232,96,74,.25);}
+  .finding.pass{background:none;border:none;padding:6px 10px;opacity:.7;}
+  .fi-icon{flex-shrink:0;margin-top:2px;font-size:13px;line-height:1;}
+  .fi-name{font-size:13px;color:var(--text);font-weight:500;}
+  .fi-msg{font-size:12px;color:#9298A8;margin-top:2px;}
+  .fi-name.pass-name{font-size:12.5px;color:#B7BCC8;font-weight:400;}
+  .trend-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px 16px;}
+  .trend-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:14px;}
+  .trend-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;}
+  .trend-title{font-family:'Fraunces',serif;font-size:20px;margin:2px 0 0;font-weight:600;}
+  .range-toggle{display:flex;gap:6px;background:var(--bg);padding:4px;border-radius:9px;border:1px solid var(--border);}
+  .range-btn{border:none;border-radius:6px;padding:7px 14px;font-size:13px;cursor:pointer;background:transparent;
+    color:var(--text2);font-family:inherit;}
+  .range-btn.active{background:#2A3140;color:var(--text);font-weight:600;}
+  .legend{display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;}
+  .legend-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#B7BCC8;}
+  .methodology{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.6;}
+  .loading{color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:13px;padding:60px 0;text-align:center;}
+  svg text{font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="header"></div>
+  <div id="cards" class="cards"><div class="loading">Laen andmeid …</div></div>
+  <div id="trend"></div>
+  <div id="methodology" class="methodology"></div>
+</div>
+
+<script>
+const RANGE_DAYS = { week: 7, month: 30, year: 365 };
+const COLORS = { hyba: 'var(--c-hyba)', raha24: 'var(--c-raha24)', moneyzen: 'var(--c-moneyzen)' };
+const SITE_ORDER = ['hyba', 'raha24', 'moneyzen'];
+let DATA = null;
+let currentRange = 'month';
+let expandedSite = null;
+
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function scoreBand(score){
+  if (score >= 85) return { label: 'Hea', color: 'var(--good)' };
+  if (score >= 70) return { label: 'Rahuldav', color: 'var(--warn)' };
+  return { label: 'Vajab tähelepanu', color: 'var(--bad)' };
+}
+
+function buildDates(startStr, n){
+  const start = new Date(startStr + 'T00:00:00Z');
+  const arr = [];
+  for (let i = 0; i < n; i++){
+    const d = new Date(start);
+    d.setUTCDate(d.getUTCDate() + i);
+    arr.push(d.toISOString().slice(0,10));
+  }
+  return arr;
+}
+
+const MONTHS = ['jaan','veebr','märts','apr','mai','juuni','juuli','aug','sept','okt','nov','dets'];
+function fmtDate(d){ const [y,m,day] = d.split('-'); return `${day}. ${MONTHS[parseInt(m,10)-1]}`; }
+
+function gaugeSVG(score, color){
+  const r = 46, c = 2*Math.PI*r, pct = score/100;
+  return `<svg width="112" height="112" viewBox="0 0 112 112">
+    <circle cx="56" cy="56" r="${r}" fill="none" stroke="#262C38" stroke-width="9"/>
+    <circle cx="56" cy="56" r="${r}" fill="none" stroke="${color}" stroke-width="9"
+      stroke-dasharray="${c*pct} ${c}" stroke-linecap="round" transform="rotate(-90 56 56)"/>
+    <text x="56" y="52" text-anchor="middle" font-size="26" font-weight="700" fill="var(--text)">${score}</text>
+    <text x="56" y="70" text-anchor="middle" font-size="10" fill="var(--text2)" letter-spacing="0.05em">SKOOR</text>
+  </svg>`;
+}
+
+function miniLineSVG(scores, color){
+  const w = 900, h = 60, pad = 4;
+  const min = Math.min(...scores), max = Math.max(...scores);
+  const range = Math.max(1, max - min);
+  const pts = scores.map((s,i) => {
+    const x = pad + (i/(scores.length-1||1)) * (w - pad*2);
+    const y = h - pad - ((s - min)/range) * (h - pad*2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  return `<svg width="100%" height="70" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="display:block;">
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+  </svg>`;
+}
+
+function combinedTrendSVG(range){
+  const w = 900, h = 240, padL = 34, padR = 10, padT = 14, padB = 24;
+  const ref = DATA.trend[SITE_ORDER[0]];
+  const n = ref.scores.length;
+  const days = RANGE_DAYS[range];
+  const sliceStart = Math.max(0, n - days);
+  const dates = buildDates(ref.start, n).slice(sliceStart);
+  const count = dates.length;
+
+  let gridLines = '';
+  let yLabels = '';
+  [40,55,70,85,100].forEach(v => {
+    const y = padT + (1 - (v-40)/60) * (h - padT - padB);
+    gridLines += `<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="#232A36" stroke-width="1"/>`;
+    yLabels += `<text x="${padL-8}" y="${y+4}" text-anchor="end" font-size="11" fill="var(--text3)">${v}</text>`;
+  });
+
+  let lines = '';
+  SITE_ORDER.forEach(sid => {
+    const scores = DATA.trend[sid].scores.slice(sliceStart);
+    const pts = scores.map((s,i) => {
+      const x = padL + (i/(count-1||1)) * (w - padL - padR);
+      const y = padT + (1 - (Math.max(40,Math.min(100,s))-40)/60) * (h - padT - padB);
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(' ');
+    lines += `<polyline points="${pts}" fill="none" stroke="${COLORS[sid]}" stroke-width="2.25" vector-effect="non-scaling-stroke"/>`;
+  });
+
+  const tickEvery = range === 'week' ? 1 : range === 'month' ? 5 : 45;
+  let xLabels = '';
+  dates.forEach((d,i) => {
+    if (i % tickEvery === 0 || i === count-1){
+      const x = padL + (i/(count-1||1)) * (w - padL - padR);
+      xLabels += `<text x="${x}" y="${h-6}" text-anchor="middle" font-size="10.5" fill="var(--text3)">${fmtDate(d)}</text>`;
+    }
+  });
+
+  return `<svg width="100%" height="260" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="display:block;">
+    ${gridLines}${yLabels}${lines}${xLabels}
+  </svg>`;
+}
+
+function categoryBlock(title, findings, accentVar){
+  if (!findings) return '';
+  const fails = findings.filter(f => f.status === 'fail');
+  const passes = findings.filter(f => f.status === 'pass');
+  return `<div class="cat-block">
+    <div class="cat-title" style="color:${accentVar}">${title} <span class="cat-count">· ${fails.length} leidu</span></div>
+    <div class="findings">
+      ${fails.map(f => `<div class="finding">
+        <span class="fi-icon" style="color:var(--bad)">✕</span>
+        <div><div class="fi-name">${esc(f.name)}</div><div class="fi-msg">${esc(f.message)}</div></div>
+      </div>`).join('')}
+      ${passes.map(f => `<div class="finding pass">
+        <span class="fi-icon" style="color:var(--good)">✓</span>
+        <div class="fi-name pass-name">${esc(f.name)}</div>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function renderCard(sid){
+  const site = DATA.latest[sid];
+  const trend = DATA.trend[sid];
+  const n = trend.scores.length;
+  const days = RANGE_DAYS[currentRange];
+  const sliceStart = Math.max(0, n - days);
+  const startScore = trend.scores[sliceStart];
+  const startIssues = trend.issues[sliceStart];
+  const issueDelta = site.issueCount - startIssues;
+  const band = scoreBand(site.score);
+  const color = COLORS[sid];
+  const isOpen = expandedSite === sid;
+
+  const deltaIcon = issueDelta < 0 ? '▲' : issueDelta > 0 ? '▼' : '–';
+  const deltaColor = issueDelta < 0 ? 'var(--good)' : issueDelta > 0 ? 'var(--bad)' : 'var(--text3)';
+  const deltaText = issueDelta === 0 ? 'muutuseta' : issueDelta < 0 ? `${Math.abs(issueDelta)} vähem vigu` : `${issueDelta} rohkem vigu`;
+
+  return `<div class="card">
+    <div class="card-top">
+      <div class="gauge-wrap">${gaugeSVG(site.score, color)}</div>
+      <div class="site-info">
+        <div class="site-name-row">
+          <span class="swatch" style="background:${color}"></span>
+          <h3 class="site-name">${esc(site.siteName)}</h3>
+        </div>
+        <a class="site-url" href="${esc(site.url)}" target="_blank" rel="noreferrer">${esc(site.url.replace('https://',''))} ↗</a>
+        <div class="stats-row">
+          <div>
+            <div class="issue-num">${site.issueCount}</div>
+            <div class="issue-lbl">tuvastatud viga</div>
+          </div>
+          <div class="delta" style="color:${deltaColor}">
+            <span>${deltaIcon}</span><span>${deltaText}</span>
+          </div>
+        </div>
+      </div>
+      <div><span class="band" style="color:${band.color};background:color-mix(in srgb, ${band.color} 12%, transparent);border:1px solid color-mix(in srgb, ${band.color} 35%, transparent);">${band.label}</span></div>
+      <button class="expand-btn" data-site="${sid}">${isOpen ? 'Peida leiud ▲' : 'Vaata leide ▼'}</button>
+    </div>
+    <div class="mini-chart">${miniLineSVG(trend.scores.slice(sliceStart), color)}</div>
+    <div class="details ${isOpen ? 'open' : ''}">
+      ${categoryBlock('SEO', site.findings.SEO, 'var(--c-seo)')}
+      ${categoryBlock('GEO', site.findings.GEO, 'var(--c-geo)')}
+      ${categoryBlock('Tehniline', site.findings.Tehniline, 'var(--c-tech)')}
+    </div>
+  </div>`;
+}
+
+function renderHeader(){
+  const totalIssues = SITE_ORDER.reduce((s,id) => s + DATA.latest[id].issueCount, 0);
+  const lastDate = DATA.latest[SITE_ORDER[0]].date;
+  document.getElementById('header').innerHTML = `
+    <div class="eyebrow"><span class="dot"></span>Automaatne päevane skann · viimane skann ${fmtDate(lastDate)}</div>
+    <h1>SEO &amp; GEO diagnostika</h1>
+    <p class="sub">3 jälgitavat lehte, ${totalIssues} kokku tuvastatud viga täna. Iga kaart on avatav — näed täpselt, mis on katki ja mida AI-otsingumootorid (GEO) sinu lehelt näevad.</p>
+  `;
+}
+
+function renderCards(){
+  document.getElementById('cards').innerHTML = SITE_ORDER.map(renderCard).join('');
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sid = btn.getAttribute('data-site');
+      expandedSite = expandedSite === sid ? null : sid;
+      renderCards();
+    });
+  });
+}
+
+function renderTrend(){
+  const legend = SITE_ORDER.map(sid => `<div class="legend-item"><span class="swatch" style="background:${COLORS[sid]}"></span>${esc(DATA.latest[sid].siteName)}</div>`).join('');
+  document.getElementById('trend').innerHTML = `
+    <div class="trend-box">
+      <div class="trend-head">
+        <div>
+          <div class="trend-eyebrow">Trend</div>
+          <h2 class="trend-title">Skoori areng ajas</h2>
+        </div>
+        <div class="range-toggle">
+          <button class="range-btn ${currentRange==='week'?'active':''}" data-range="week">Nädal</button>
+          <button class="range-btn ${currentRange==='month'?'active':''}" data-range="month">Kuu</button>
+          <button class="range-btn ${currentRange==='year'?'active':''}" data-range="year">Aasta</button>
+        </div>
+      </div>
+      <div class="legend">${legend}</div>
+      ${combinedTrendSVG(currentRange)}
+    </div>
+  `;
+  document.querySelectorAll('.range-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentRange = btn.getAttribute('data-range');
+      renderCards();
+      renderTrend();
+    });
+  });
+}
+
+function renderMethodology(){
+  document.getElementById('methodology').innerHTML = `Metoodika: iga skann kontrollib SEO-põhilisi (title, meta,
+    H1, struktureeritud andmed, sitemap jne), GEO-spetsiifilisi (llms.txt, AI-robotite ligipääs, FAQ-schema, sisu
+    loetavus AI-mudelitele) ja tehnilisi (HTTPS, vastuseaeg, turvapäised, mobiilivaade) parameetreid. Skoor = 100
+    miinus kaalutud mahaarvestus leitud vigade tõsiduse (kriitiline / suur / väike) järgi. Andmed uuenevad
+    automaatselt kord päevas (vt .github/workflows/daily-scan.yml).`;
+}
+
+fetch('./data.json?_=' + Date.now())
+  .then(r => { if (!r.ok) throw new Error('data.json puudub'); return r.json(); })
+  .then(json => {
+    DATA = json;
+    renderHeader();
+    renderCards();
+    renderTrend();
+    renderMethodology();
+  })
+  .catch(err => {
+    document.getElementById('cards').innerHTML = `<div class="loading">Andmete laadimine ebaõnnestus: ${esc(err.message)}.<br>Veendu, et data.json on samas kaustas mis index.html.</div>`;
+  });
+</script>
+</body>
+</html>
