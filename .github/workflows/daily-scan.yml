@@ -1,0 +1,38 @@
+name: Daily SEO/GEO scan
+
+on:
+  schedule:
+    # 04:00 UTC = 06:00/07:00 Eesti aja järgi (olenevalt suvi/talveajast)
+    - cron: '0 4 * * *'
+  workflow_dispatch: {}   # võimaldab käsitsi käivitada GitHubi "Actions" vahekaardilt
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./crawler
+        run: npm install
+
+      - name: Run analyzer
+        working-directory: ./crawler
+        run: node analyzer.js
+
+      - name: Commit updated data
+        run: |
+          git config user.name "seo-geo-bot"
+          git config user.email "seo-geo-bot@users.noreply.github.com"
+          git add data/history.json dashboard/data.json
+          git diff --cached --quiet || git commit -m "Daily scan: $(date -u +%Y-%m-%d)"
+          git push
