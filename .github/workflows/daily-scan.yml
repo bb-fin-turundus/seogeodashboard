@@ -33,6 +33,8 @@ jobs:
         run: |
           git config user.name "seo-geo-bot"
           git config user.email "seo-geo-bot@users.noreply.github.com"
-          git add data/history.json dashboard/data.json
+          git add data/history.json data.json
           git diff --cached --quiet || git commit -m "Daily scan: $(date -u +%Y-%m-%d)"
+          git fetch origin main
+          git rebase origin/main
           git push
