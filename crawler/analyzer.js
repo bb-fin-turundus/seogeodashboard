@@ -294,7 +294,7 @@ function finalize(site, findings, meta) {
   };
 }
 
-const DASHBOARD_DATA_PATH = path.join(__dirname, '..', 'dashboard', 'data.json');
+const DASHBOARD_DATA_PATH = path.join(__dirname, '..', 'data.json');
 
 // Builds the compact structure the static dashboard (dashboard/index.html) reads.
 // One entry per site per day is collapsed into parallel arrays (scores/issues) to
