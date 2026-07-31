@@ -15953,6 +15953,579 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-07-31",
+      "timestamp": "2026-07-31T11:49:21.352Z",
+      "results": [
+        {
+          "siteId": "hyba",
+          "siteName": "Hyba.ee",
+          "url": "https://www.hyba.ee",
+          "date": "2026-07-31",
+          "timestamp": "2026-07-31T11:49:11.813Z",
+          "issueCount": 6,
+          "score": 88,
+          "meta": {
+            "loadTime": 3351,
+            "sizeKB": 272.08203125
+          },
+          "findings": {
+            "SEO": [
+              {
+                "category": "SEO",
+                "name": "Title-silt",
+                "status": "pass",
+                "severity": null,
+                "message": "\"HyBa • Rahatagavara kui pisut jääb puudu • Ava konto tasuta\" (59 tm)"
+              },
+              {
+                "category": "SEO",
+                "name": "Meta description",
+                "status": "pass",
+                "severity": null,
+                "message": "Pikkus 137 tm"
+              },
+              {
+                "category": "SEO",
+                "name": "H1 pealkiri",
+                "status": "pass",
+                "severity": null,
+                "message": "H1: \"Laenud kuni 10 000 €\""
+              },
+              {
+                "category": "SEO",
+                "name": "Canonical link",
+                "status": "pass",
+                "severity": null,
+                "message": "Canonical: https://hyba.ee/"
+              },
+              {
+                "category": "SEO",
+                "name": "Piltide alt-tekstid",
+                "status": "fail",
+                "severity": "major",
+                "message": "16/20 pildil puudub alt-tekst"
+              },
+              {
+                "category": "SEO",
+                "name": "Struktureeritud andmed (Schema.org)",
+                "status": "pass",
+                "severity": null,
+                "message": "1 JSON-LD plokki leitud"
+              },
+              {
+                "category": "SEO",
+                "name": "Open Graph sildid (jagamine sotsiaalmeedias)",
+                "status": "pass",
+                "severity": null,
+                "message": "og:title ja og:image olemas"
+              },
+              {
+                "category": "SEO",
+                "name": "Lehe keele määratlus (lang)",
+                "status": "pass",
+                "severity": null,
+                "message": "lang=\"et\""
+              },
+              {
+                "category": "SEO",
+                "name": "robots.txt",
+                "status": "pass",
+                "severity": null,
+                "message": "robots.txt eksisteerib"
+              },
+              {
+                "category": "SEO",
+                "name": "sitemap.xml",
+                "status": "pass",
+                "severity": null,
+                "message": "Sitemap leitud (robots.txt viide või /sitemap.xml)"
+              }
+            ],
+            "GEO": [
+              {
+                "category": "GEO",
+                "name": "llms.txt",
+                "status": "fail",
+                "severity": "minor",
+                "message": "llms.txt puudub (soovituslik AI-otsingumootoritele nähtavuse jaoks)"
+              },
+              {
+                "category": "GEO",
+                "name": "AI-robotite ligipääs (robots.txt)",
+                "status": "pass",
+                "severity": null,
+                "message": "AI-robotite (GPTBot, Google-Extended jt) ligipääsu ei blokeerita"
+              },
+              {
+                "category": "GEO",
+                "name": "FAQ struktureeritud andmed",
+                "status": "fail",
+                "severity": "minor",
+                "message": "FAQ-tüüpi sisu/schema ei tuvastatud"
+              },
+              {
+                "category": "GEO",
+                "name": "Sisu jaotus alapealkirjadega (H2)",
+                "status": "pass",
+                "severity": null,
+                "message": "2 H2 pealkirja — AI mudelitel lihtsam sisu tükeldada"
+              },
+              {
+                "category": "GEO",
+                "name": "Organisatsiooni/autori andmed",
+                "status": "pass",
+                "severity": null,
+                "message": "Organization/author schema leitud — usaldusväärsuse signaal AI-mudelitele"
+              },
+              {
+                "category": "GEO",
+                "name": "Teksti/HTML suhe",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Suhe 5.4% — vähe reaalset tekstisisu AI-le töötlemiseks"
+              }
+            ],
+            "Tehniline": [
+              {
+                "category": "Tehniline",
+                "name": "Lehe kättesaadavus",
+                "status": "pass",
+                "severity": null,
+                "message": "Leht vastab HTTP 200-ga"
+              },
+              {
+                "category": "Tehniline",
+                "name": "HTTPS kasutusel",
+                "status": "pass",
+                "severity": null,
+                "message": "Sait kasutab HTTPS-i"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Serveri vastuseaeg",
+                "status": "fail",
+                "severity": "major",
+                "message": "Vastuseaeg 3351ms — aeglane"
+              },
+              {
+                "category": "Tehniline",
+                "name": "HTML dokumendi suurus",
+                "status": "pass",
+                "severity": null,
+                "message": "HTML suurus 272KB"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Sisu tihendamine (gzip/brotli)",
+                "status": "pass",
+                "severity": null,
+                "message": "Kasutusel: gzip"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Turvapäised",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Puuduvad: strict-transport-security, x-content-type-options, content-security-policy"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Mobiili viewport meta-silt",
+                "status": "pass",
+                "severity": null,
+                "message": "viewport: width=device-width, initial-scale=1"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Favicon",
+                "status": "pass",
+                "severity": null,
+                "message": "Favicon defineeritud"
+              }
+            ]
+          }
+        },
+        {
+          "siteId": "raha24",
+          "siteName": "Raha24.ee",
+          "url": "https://www.raha24.ee",
+          "date": "2026-07-31",
+          "timestamp": "2026-07-31T11:49:15.936Z",
+          "issueCount": 5,
+          "score": 89,
+          "meta": {
+            "loadTime": 2689,
+            "sizeKB": 230.140625
+          },
+          "findings": {
+            "SEO": [
+              {
+                "category": "SEO",
+                "name": "Title-silt",
+                "status": "pass",
+                "severity": null,
+                "message": "\"Raha24 | Tagatiseta laen kuni 10 000 € | Vastus kohe\" (52 tm)"
+              },
+              {
+                "category": "SEO",
+                "name": "Meta description",
+                "status": "pass",
+                "severity": null,
+                "message": "Pikkus 135 tm"
+              },
+              {
+                "category": "SEO",
+                "name": "H1 pealkiri",
+                "status": "pass",
+                "severity": null,
+                "message": "H1: \"Raha24\""
+              },
+              {
+                "category": "SEO",
+                "name": "Canonical link",
+                "status": "pass",
+                "severity": null,
+                "message": "Canonical: https://raha24.ee/et/"
+              },
+              {
+                "category": "SEO",
+                "name": "Piltide alt-tekstid",
+                "status": "fail",
+                "severity": "major",
+                "message": "17/27 pildil puudub alt-tekst"
+              },
+              {
+                "category": "SEO",
+                "name": "Struktureeritud andmed (Schema.org)",
+                "status": "pass",
+                "severity": null,
+                "message": "1 JSON-LD plokki leitud"
+              },
+              {
+                "category": "SEO",
+                "name": "Open Graph sildid (jagamine sotsiaalmeedias)",
+                "status": "fail",
+                "severity": "minor",
+                "message": "og:title ja/või og:image puuduvad"
+              },
+              {
+                "category": "SEO",
+                "name": "Lehe keele määratlus (lang)",
+                "status": "pass",
+                "severity": null,
+                "message": "lang=\"et\""
+              },
+              {
+                "category": "SEO",
+                "name": "robots.txt",
+                "status": "pass",
+                "severity": null,
+                "message": "robots.txt eksisteerib"
+              },
+              {
+                "category": "SEO",
+                "name": "sitemap.xml",
+                "status": "pass",
+                "severity": null,
+                "message": "Sitemap leitud (robots.txt viide või /sitemap.xml)"
+              }
+            ],
+            "GEO": [
+              {
+                "category": "GEO",
+                "name": "llms.txt",
+                "status": "pass",
+                "severity": null,
+                "message": "llms.txt leitud — AI-mudelitele mõeldud lehe kirjeldus olemas"
+              },
+              {
+                "category": "GEO",
+                "name": "AI-robotite ligipääs (robots.txt)",
+                "status": "pass",
+                "severity": null,
+                "message": "AI-robotite (GPTBot, Google-Extended jt) ligipääsu ei blokeerita"
+              },
+              {
+                "category": "GEO",
+                "name": "FAQ struktureeritud andmed",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Küsimuse-stiilis pealkirju leidub, kuid FAQPage schema puudub"
+              },
+              {
+                "category": "GEO",
+                "name": "Sisu jaotus alapealkirjadega (H2)",
+                "status": "pass",
+                "severity": null,
+                "message": "11 H2 pealkirja — AI mudelitel lihtsam sisu tükeldada"
+              },
+              {
+                "category": "GEO",
+                "name": "Organisatsiooni/autori andmed",
+                "status": "pass",
+                "severity": null,
+                "message": "Organization/author schema leitud — usaldusväärsuse signaal AI-mudelitele"
+              },
+              {
+                "category": "GEO",
+                "name": "Teksti/HTML suhe",
+                "status": "pass",
+                "severity": null,
+                "message": "Suhe 64.7% — piisavalt tekstisisu"
+              }
+            ],
+            "Tehniline": [
+              {
+                "category": "Tehniline",
+                "name": "Lehe kättesaadavus",
+                "status": "pass",
+                "severity": null,
+                "message": "Leht vastab HTTP 200-ga"
+              },
+              {
+                "category": "Tehniline",
+                "name": "HTTPS kasutusel",
+                "status": "pass",
+                "severity": null,
+                "message": "Sait kasutab HTTPS-i"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Serveri vastuseaeg",
+                "status": "fail",
+                "severity": "major",
+                "message": "Vastuseaeg 2689ms — aeglane"
+              },
+              {
+                "category": "Tehniline",
+                "name": "HTML dokumendi suurus",
+                "status": "pass",
+                "severity": null,
+                "message": "HTML suurus 230KB"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Sisu tihendamine (gzip/brotli)",
+                "status": "pass",
+                "severity": null,
+                "message": "Kasutusel: gzip"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Turvapäised",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Puuduvad: strict-transport-security, x-content-type-options, content-security-policy"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Mobiili viewport meta-silt",
+                "status": "pass",
+                "severity": null,
+                "message": "viewport: width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Favicon",
+                "status": "pass",
+                "severity": null,
+                "message": "Favicon defineeritud"
+              }
+            ]
+          }
+        },
+        {
+          "siteId": "moneyzen",
+          "siteName": "MoneyZen.eu",
+          "url": "https://www.moneyzen.eu",
+          "date": "2026-07-31",
+          "timestamp": "2026-07-31T11:49:21.349Z",
+          "issueCount": 7,
+          "score": 90,
+          "meta": {
+            "loadTime": 2125,
+            "sizeKB": 201.2568359375
+          },
+          "findings": {
+            "SEO": [
+              {
+                "category": "SEO",
+                "name": "Title-silt",
+                "status": "pass",
+                "severity": null,
+                "message": "\"Inimlikud laenud ja mugav investeerimine - MONEYZEN\" (51 tm)"
+              },
+              {
+                "category": "SEO",
+                "name": "Meta description",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Pikkus 212 tm — soovituslik 50-160"
+              },
+              {
+                "category": "SEO",
+                "name": "H1 pealkiri",
+                "status": "fail",
+                "severity": "major",
+                "message": "Lehel puudub H1"
+              },
+              {
+                "category": "SEO",
+                "name": "Canonical link",
+                "status": "pass",
+                "severity": null,
+                "message": "Canonical: https://moneyzen.eu/"
+              },
+              {
+                "category": "SEO",
+                "name": "Piltide alt-tekstid",
+                "status": "fail",
+                "severity": "minor",
+                "message": "5/14 pildil puudub alt-tekst"
+              },
+              {
+                "category": "SEO",
+                "name": "Struktureeritud andmed (Schema.org)",
+                "status": "pass",
+                "severity": null,
+                "message": "1 JSON-LD plokki leitud"
+              },
+              {
+                "category": "SEO",
+                "name": "Open Graph sildid (jagamine sotsiaalmeedias)",
+                "status": "pass",
+                "severity": null,
+                "message": "og:title ja og:image olemas"
+              },
+              {
+                "category": "SEO",
+                "name": "Lehe keele määratlus (lang)",
+                "status": "pass",
+                "severity": null,
+                "message": "lang=\"et\""
+              },
+              {
+                "category": "SEO",
+                "name": "robots.txt",
+                "status": "pass",
+                "severity": null,
+                "message": "robots.txt eksisteerib"
+              },
+              {
+                "category": "SEO",
+                "name": "sitemap.xml",
+                "status": "pass",
+                "severity": null,
+                "message": "Sitemap leitud (robots.txt viide või /sitemap.xml)"
+              }
+            ],
+            "GEO": [
+              {
+                "category": "GEO",
+                "name": "llms.txt",
+                "status": "fail",
+                "severity": "minor",
+                "message": "llms.txt puudub (soovituslik AI-otsingumootoritele nähtavuse jaoks)"
+              },
+              {
+                "category": "GEO",
+                "name": "AI-robotite ligipääs (robots.txt)",
+                "status": "pass",
+                "severity": null,
+                "message": "AI-robotite (GPTBot, Google-Extended jt) ligipääsu ei blokeerita"
+              },
+              {
+                "category": "GEO",
+                "name": "FAQ struktureeritud andmed",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Küsimuse-stiilis pealkirju leidub, kuid FAQPage schema puudub"
+              },
+              {
+                "category": "GEO",
+                "name": "Sisu jaotus alapealkirjadega (H2)",
+                "status": "pass",
+                "severity": null,
+                "message": "16 H2 pealkirja — AI mudelitel lihtsam sisu tükeldada"
+              },
+              {
+                "category": "GEO",
+                "name": "Organisatsiooni/autori andmed",
+                "status": "pass",
+                "severity": null,
+                "message": "Organization/author schema leitud — usaldusväärsuse signaal AI-mudelitele"
+              },
+              {
+                "category": "GEO",
+                "name": "Teksti/HTML suhe",
+                "status": "pass",
+                "severity": null,
+                "message": "Suhe 21.2% — piisavalt tekstisisu"
+              }
+            ],
+            "Tehniline": [
+              {
+                "category": "Tehniline",
+                "name": "Lehe kättesaadavus",
+                "status": "pass",
+                "severity": null,
+                "message": "Leht vastab HTTP 200-ga"
+              },
+              {
+                "category": "Tehniline",
+                "name": "HTTPS kasutusel",
+                "status": "pass",
+                "severity": null,
+                "message": "Sait kasutab HTTPS-i"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Serveri vastuseaeg",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Vastuseaeg 2125ms — jälgi jõudlust"
+              },
+              {
+                "category": "Tehniline",
+                "name": "HTML dokumendi suurus",
+                "status": "pass",
+                "severity": null,
+                "message": "HTML suurus 201KB"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Sisu tihendamine (gzip/brotli)",
+                "status": "pass",
+                "severity": null,
+                "message": "Kasutusel: gzip"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Turvapäised",
+                "status": "fail",
+                "severity": "minor",
+                "message": "Puuduvad: strict-transport-security, x-content-type-options, content-security-policy"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Mobiili viewport meta-silt",
+                "status": "pass",
+                "severity": null,
+                "message": "viewport: width=device-width, initial-scale=1"
+              },
+              {
+                "category": "Tehniline",
+                "name": "Favicon",
+                "status": "pass",
+                "severity": null,
+                "message": "Favicon defineeritud"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
