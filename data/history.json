@@ -19967,18 +19967,18 @@
     },
     {
       "date": "2026-08-07",
-      "timestamp": "2026-08-07T06:32:32.489Z",
+      "timestamp": "2026-08-07T08:20:23.542Z",
       "results": [
         {
           "siteId": "hyba",
           "siteName": "Hyba.ee",
           "url": "https://www.hyba.ee",
           "date": "2026-08-07",
-          "timestamp": "2026-08-07T06:32:22.036Z",
+          "timestamp": "2026-08-07T08:20:13.252Z",
           "issueCount": 6,
           "score": 88,
           "meta": {
-            "loadTime": 3830,
+            "loadTime": 3688,
             "sizeKB": 279.7001953125
           },
           "findings": {
@@ -20118,7 +20118,7 @@
                 "name": "Serveri vastuseaeg",
                 "status": "fail",
                 "severity": "major",
-                "message": "Vastuseaeg 3830ms — aeglane"
+                "message": "Vastuseaeg 3688ms — aeglane"
               },
               {
                 "category": "Tehniline",
@@ -20163,12 +20163,12 @@
           "siteName": "Raha24.ee",
           "url": "https://www.raha24.ee",
           "date": "2026-08-07",
-          "timestamp": "2026-08-07T06:32:26.182Z",
+          "timestamp": "2026-08-07T08:20:17.127Z",
           "issueCount": 5,
           "score": 89,
           "meta": {
-            "loadTime": 2634,
-            "sizeKB": 231.2431640625
+            "loadTime": 2516,
+            "sizeKB": 231.240234375
           },
           "findings": {
             "SEO": [
@@ -20307,7 +20307,7 @@
                 "name": "Serveri vastuseaeg",
                 "status": "fail",
                 "severity": "major",
-                "message": "Vastuseaeg 2634ms — aeglane"
+                "message": "Vastuseaeg 2516ms — aeglane"
               },
               {
                 "category": "Tehniline",
@@ -20352,11 +20352,11 @@
           "siteName": "MoneyZen.eu",
           "url": "https://www.moneyzen.eu",
           "date": "2026-08-07",
-          "timestamp": "2026-08-07T06:32:32.485Z",
+          "timestamp": "2026-08-07T08:20:23.539Z",
           "issueCount": 6,
           "score": 88,
           "meta": {
-            "loadTime": 2918,
+            "loadTime": 2677,
             "sizeKB": 201.2119140625
           },
           "findings": {
@@ -20496,7 +20496,7 @@
                 "name": "Serveri vastuseaeg",
                 "status": "fail",
                 "severity": "major",
-                "message": "Vastuseaeg 2918ms — aeglane"
+                "message": "Vastuseaeg 2677ms — aeglane"
               },
               {
                 "category": "Tehniline",
